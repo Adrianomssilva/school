@@ -1,17 +1,25 @@
+# frozen_string_literal: true
 
+# essa classe faz x coisa
 class Application
-   def initialize; end
+  def initialize; end
 
-   def call
-      run
-   end
+  def call
+    run
+  end
 
-   private
-   def run
-      present_student
-   end
+  private
 
-   def present_student
-      Student.say_hi
-   end
+  def run
+    load_initializers
+    present_student
+  end
+
+  def load_initializers
+    require 'config/load_initializers'
+  end
+
+  def present_student
+    Student.say_hi
+  end
 end
